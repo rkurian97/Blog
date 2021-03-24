@@ -1,6 +1,6 @@
 const mongoose = require('mongoose'),
   url = 'mongodb://127.0.0.1:27017',
-  dbName = 'Members',
+  dbName = 'Blog',
   connectionString = url + '/' + dbName;
 
 mongoose.connect(connectionString, 

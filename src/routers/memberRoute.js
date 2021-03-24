@@ -19,7 +19,9 @@ router.get('/article', (req,res) => {
 })
 
 router.post('/register', async (req, res)=> {
+  console.log(req.body)
   const newUser= new memberSchema(req.body)
+  console.log(newUser)
   newUser.save().then(() => {
     res.render('blog/register-confirm')
   }).catch((error) => {
@@ -27,4 +29,20 @@ router.post('/register', async (req, res)=> {
     res.status(400).send(error)
   })
 })
+
+router.get("/login-button", async(req, res) => {
+  try{
+    const staffMember = await memberSchema.find(req.query)
+    console.log(staffMember)
+    res.render('blog/login-confirm')
+  }catch(error){
+    console.log(error)
+    res.status(500).send(error)
+  }
+})
+
+router.get('/article-edit', (req,res) => {
+  res.render('blog/article-edit')
+})
+
 module.exports = router
