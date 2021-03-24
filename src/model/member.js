@@ -24,8 +24,13 @@ const memberSchema = mongoose.Schema({
         trim: true,
         minLength: 4
       
-    }
-
+    },
+    articles: [
+        {
+          type: mongoose.Schema.Types.ObjectId, 
+          ref: 'articles'
+        }  
+      ]
 })
 
 const members = mongoose.model('members', memberSchema);
