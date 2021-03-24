@@ -15,8 +15,15 @@ const memberSchema = mongoose.Schema({
     email:{
         type: String,
         unique: true, 
+        index: true,
         require: true,
-        trim: true
+        trim: true,
+        lowercase: true,
+        validator(value){
+            if (!validator.isEmail(value)){
+                throw new Error("invalid email")
+            }
+        }
     },
     password:{
         type: String,

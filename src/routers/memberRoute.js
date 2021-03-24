@@ -18,10 +18,10 @@ router.get('/article', (req,res) => {
   res.render('blog/article')
 })
 
-router.post('/articles', async (req, res)=> {
+router.post('/register', async (req, res)=> {
   const newUser= new memberSchema(req.body)
   newUser.save().then(() => {
-    res.render('', )
+    res.render('blog/register-confirm')
   }).catch((error) => {
     console.log(error)
     res.status(400).send(error)
