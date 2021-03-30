@@ -1,8 +1,23 @@
 <%- include('../partials/header'); -%>
+                    <li class="nav-item active">
+                        <a class="nav-link" href='<%= "/blog/"+data._id %>'>Home<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
 
-<div class="container .bg-light">
-    <h2>Test</h2>
-    <p>hi</p>
-    <button type="button" class="btn btn-success" onclick="location.href='/article-edit';" >Edit</button>
-</div>
+                        <a id="article-link"class="nav-link" href='<%= "/article/"+data._id %>' >Your Article</a>
+
+                    </li>
+                    
+                </ul>
+            </div>
+        </nav>
+
+    <span><h1>Your Articles</h1></span><span><button class="btn btn-outline-primary">create article</button></span>
+    <div class="container .bg-light mt-2">
+        <h2 id='Title'> <%-data._title%></h2>
+        <h5>By <%-data.firstName+" "+data.lastName%></h5>
+        <p id="Body"><%-data.content%></p>
+        <button type="button" class="btn btn-success" onclick="location.href='/article-edit';" >Edit</button>
+    </div>
 <%- include('../partials/footer'); -%>
+

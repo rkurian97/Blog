@@ -1,4 +1,22 @@
 <%- include('../partials/header'); -%>
+            <li class="nav-item active">
+                <a class="nav-link" href='<%= "/blog/"+data._id %>'>Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
 
-<h1>Welcome to the Blog</h1>
+                <a id="article-link"class="nav-link" href='<%= "/" %>' >Your Article</a>
+
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<% for (var i = 0; i < data.length; i++) { %>
+    <div class="container .bg-light mt-2">
+        <h2 id='Title'> <%-data[i].title%></h2>
+        <!-- <h5>By <%-data.firstName+" "+data.lastName%></h5> -->
+        <p id="Body"><%-data[i].content%></p>
+        <button type="button" class="btn btn-success" onclick="location.href='/article-edit';" >Comment</button>
+    </div>
+<% } %>
 <%- include('../partials/footer'); -%>
