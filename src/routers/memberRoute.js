@@ -23,7 +23,7 @@ router.get('/blog/:id', async (req,res) => {
   // })
   console.log('params', req.params)
   const articles= await articleSchema.find({})
-  res.render('blog/blog', {data: articles, members: req.params.id})
+  res.render('blog/blog', {data: articles, member: req.params.id})
 
 })
 
@@ -38,7 +38,7 @@ router.post('/register', async (req, res)=> {
   const newUser= new memberSchema(req.body)
 
   newUser.save().then(() => {
-    res.redirect('/login')
+    res.redirect('/')
   }).catch((error) => {
     console.log(error)
     res.status(400).send(error)
